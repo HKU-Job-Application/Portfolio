@@ -1,233 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Ton Yeh · Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Portfolio · Teaching & Mathematics Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: #f6f8fa;
-      font-family: 'Georgia', 'Times New Roman', Times, serif;
-      line-height: 1.55;
-      color: #1e2a3e;
-      padding: 2rem 1rem;
-    }
+        body {
+            background: #f6f8fa;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: #1a2a3f;
+            padding: 2rem 1rem;
+        }
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-      padding: 2.2rem 2rem 2.8rem 2rem;
-      transition: all 0.2s;
-    }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            padding: 2rem 2rem 2.5rem 2rem;
+            transition: all 0.2s;
+        }
 
-    /* typography & spacing */
-    h1, h2, h3 {
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
+        /* headings */
+        .portfolio-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            border-bottom: 3px solid #1e3a5f;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.8rem;
+            color: #0b2b42;
+        }
 
-    .portfolio-heading {
-      font-size: 1.8rem;
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 6px;
-      margin: 1.2rem 0 0.8rem 0;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 0.25rem;
-    }
+        .portfolio-item {
+            margin-bottom: 2.2rem;
+            border-left: 3px solid #e2e8f0;
+            padding-left: 1.2rem;
+            transition: border 0.1s ease;
+        }
 
-    .second-page-badge {
-      font-weight: 700;
-      font-size: 1rem;
-      background: #f1f5f9;
-      display: inline-block;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      margin-bottom: 1.4rem;
-      letter-spacing: 0.3px;
-      color: #0f172a;
-      border: 1px solid #e2e8f0;
-    }
+        .portfolio-item:hover {
+            border-left-color: #3b82f6;
+        }
 
-    strong, b {
-      color: #0c4a6e;
-    }
+        .item-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #0f3b5c;
+            margin-bottom: 0.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
 
-    a {
-      color: #1e6f9f;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 2px;
-      transition: color 0.2s;
-    }
+        .item-title strong {
+            font-weight: 700;
+        }
 
-    a:hover {
-      color: #0b3b4f;
-      text-decoration-thickness: 2px;
-    }
+        .sub-list {
+            list-style: none;
+            margin-top: 0.5rem;
+            padding-left: 0;
+        }
 
-    ul, .list-like {
-      margin: 0.5rem 0 0.9rem 1.6rem;
-    }
+        .sub-list li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.3rem;
+            position: relative;
+            font-size: 0.98rem;
+            color: #1e2f3e;
+        }
 
-    li {
-      margin: 0.5rem 0;
-      line-height: 1.55;
-    }
+        .sub-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0.2rem;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
 
-    .sub-section {
-      margin-top: 1.4rem;
-      margin-bottom: 1rem;
-    }
+        .sub-sub-list {
+            list-style: none;
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+            padding-left: 1.6rem;
+        }
 
-    .game-title, .presentation-title, .math-title {
-      font-weight: 700;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      margin-bottom: 0.25rem;
-      color: #0f172a;
-    }
+        .sub-sub-list li {
+            padding-left: 1rem;
+            margin-bottom: 0.4rem;
+            position: relative;
+        }
 
-    .inline-code {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      background: #f1f5f9;
-      padding: 0.1rem 0.3rem;
-      border-radius: 8px;
-      font-size: 0.9em;
-    }
+        .sub-sub-list li::before {
+            content: "—";
+            position: absolute;
+            left: -0.2rem;
+            color: #5b7a9a;
+        }
 
-    hr {
-      margin: 2rem 0 1rem;
-      border: none;
-      border-top: 1px solid #cbd5e1;
-    }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-word;
+            transition: color 0.2s;
+        }
 
-    .footnote {
-      font-size: 0.85rem;
-      line-height: 1.5;
-      color: #2c3e4e;
-      background: #fefce8;
-      padding: 1.1rem 1.4rem;
-      border-radius: 18px;
-      margin-top: 2rem;
-      border-left: 4px solid #b99470;
-    }
+        a:hover {
+            color: #1e40af;
+            text-decoration: underline;
+        }
 
-    .footnote p {
-      margin: 0.7rem 0;
-    }
+        .inline-code {
+            background: #f1f5f9;
+            padding: 0.1rem 0.3rem;
+            border-radius: 6px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.9em;
+        }
 
-    .footnote a {
-      word-break: break-all;
-    }
+        .footnote-ref {
+            vertical-align: super;
+            font-size: 0.75rem;
+            margin-left: 0.15rem;
+        }
 
-    .backlink {
-      font-size: 0.75rem;
-      margin-left: 0.4rem;
-      text-decoration: none !important;
-      font-weight: normal;
-    }
+        .footnotes {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e2edf2;
+            font-size: 0.85rem;
+            background-color: #fafcff;
+            border-radius: 20px;
+            padding: 1.5rem 1.8rem;
+            color: #2c4c6e;
+        }
 
-    sup {
-      font-size: 0.75rem;
-      vertical-align: super;
-      line-height: 0;
-    }
+        .footnote-item {
+            display: flex;
+            gap: 0.8rem;
+            line-height: 1.5;
+        }
 
-    .italic-block {
-      font-style: italic;
-      background: #faf9f5;
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
-      margin: 0.8rem 0;
-      border-left: 3px solid #bc9a6c;
-      color: #1e293b;
-    }
+        .footnote-marker {
+            font-weight: 700;
+            color: #1e5a8a;
+            min-width: 1.8rem;
+        }
 
-    .stack-item {
-      margin-bottom: 0.2rem;
-    }
+        .footnote-content p {
+            margin-bottom: 0.8rem;
+        }
 
-    @media (max-width: 650px) {
-      .container {
-        padding: 1.5rem;
-      }
-      ul {
-        padding-left: 0.8rem;
-      }
-      .portfolio-heading {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
+        .footnote-content blockquote {
+            border-left: 3px solid #90b4da;
+            background: #f1f6fd;
+            padding: 0.8rem 1.2rem;
+            margin: 0.8rem 0;
+            font-style: normal;
+            border-radius: 14px;
+            color: #1c3e5c;
+        }
+
+        .backlink {
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #cbdde9, transparent);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .item-title {
+                font-size: 1.2rem;
+            }
+            .sub-list li {
+                font-size: 0.92rem;
+            }
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <!-- PORTFOLIO heading (original underline style) -->
+    <h1 class="portfolio-heading">📁 PORTFOLIO</h1>
 
-  <!-- [PORTFOLIO] heading: exactly as in doc: bold + underline -->
-  <div class="portfolio-heading"><strong>[TON YEH'S PORTFOLIO]</strong></div>
-
-  <!-- Math Stackexchange profile block (preserving every word and dash/list structure) -->
-  <div class="math-title">Math Stackexchange profile, helping high schoolers and undergraduates with mathematical questions</div>
-  <ul>
-    <li><a href="https://math.stackexchange.com/users/309566/chris-sanders?tab=profile" target="_blank" rel="noopener noreferrer">https://math.stackexchange.com/users/309566/chris-sanders?tab=profile</a></li>
-    <li>I don't use my real name on the site, but if you click on the above link you can see in the About section of my profile the reference number for your job listing (534661), to prove it is really me.</li>
-    <li>Recently, I implemented a computer code in order to show numerical patterns, in relation to a problem about addition of two sets in real analysis
-      <br><a href="https://math.stackexchange.com/questions/5129975/is-there-a-set-a-subseteq-mathbbr-that-is-not-dense-not-bounded-from-above/5130025#5130025" target="_blank" rel="noopener noreferrer">https://math.stackexchange.com/questions/5129975/is-there-a-set-a-subseteq-mathbbr-that-is-not-dense-not-bounded-from-above/5130025#5130025</a>
-    </li>
-  </ul>
-
-  <!-- Game: Find the Flaw -->
-  <div class="game-title">Game: Find the Flaw</div>
-  <ul>
-    <li>Click on the one line in the "proof" that uses a false assumption or doesn't logically follow from the previous steps</li>
-    <li>Some of the ideas were taken from Fake Proofs already existing on the internet, some of them created by myself</li>
-    <li><a href="https://hku-job-application.github.io/Find-the-flaw/welcome.html" target="_blank" rel="noopener noreferrer">https://hku-job-application.github.io/Find-the-flaw/welcome.html</a></li>
-  </ul>
-
-  <!-- Interactive Presentation: What does dx mean in an integral? -->
-  <div class="presentation-title">Interactive Presentation: What does <em>dx</em> mean in an integral?</div>
-  <ul>
-    <li>Inspired by findings by professors at Oregon State University, that many science students have no conceptual understanding of what they're integrating in multivariable calculus and how to properly interpret the differential (click 
-      <a href="https://sites.science.oregonstate.edu/BridgeBook/book/revper/multi" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">here</a>, 
-      <a href="https://sites.science.oregonstate.edu/BridgeBook/book/revper/add.html" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">here</a> 
-      or 
-      <a href="https://sites.science.oregonstate.edu/BridgeBook/book/revper/small.html" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">here</a>)
-    </li>
-    <li>My presentation explains what a Riemann integral of a continuous function is and uses substitution of variables to explain why the differential is a measure, starting with one-variable calculus before going on to multi-variable calculus</li>
-    <li>It tries to be thorough without being technical or mathematically formal (because it is aimed at non-mathematics majors), and it includes lots of visualisations and graphs that are connected to each other on the same page (e.g. clicking on a small portion of a disc on one graph in R^2 automatically makes a small volume show up in red on another graph in R^3)<sup><a href="#fn1" id="ref-fn1">[1]</a></sup></li>
-    <li><a href="https://hku-job-application.github.io/What-does-dx-mean-in-an-integral-/1.html" target="_blank" rel="noopener noreferrer">https://hku-job-application.github.io/What-does-dx-mean-in-an-integral-/1.html</a></li>
-  </ul>
-
-  <!-- FOOTNOTE SECTION: exactly replicating footnote [1] content, preserving every word, citation, DOI, and the full quoted paragraph + final remark -->
-  <hr />
-  <div class="footnote" id="fn1">
-    <sup><strong>[1]</strong></sup> 
-    <span style="font-weight: 500;">My approach seems to accord with some remarks made in the paper:</span>
-    <br />
-    Spencer-Tyree, Brielle, Bradley D. Bowen, and Modiu Olaguro. "The Impact of Computational Labs on Conceptual and Contextual Understanding in a Business Calculus Course." <em>International Journal of Research in Undergraduate Mathematics Education</em> 11, no. 3 (August 19, 2024): 514–37.
-    <br />
-    <a href="https://doi.org/10.1007/s40753-024-00255-1" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s40753-024-00255-1</a>.
-    <br /><br />
-    In particular, the Literature Review section opens with this paragraph about lack of conceptual understanding:
-    <div class="italic-block">
-      <em>Students worldwide need help with conceptual understanding of calculus, often finishing the course with little to no conceptual knowledge intended by the curriculum (Epstein, 2013). A nationwide study in the United States found that in any introductory calculus class, about one-fourth of students either withdraw or earn a grade of D or F1 (Bressoud, 2015). This same study found that about two-thirds of calculus students in the United States self-reported difficulty in understanding derivatives and integrals. Only 40% of these students felt confident using derivatives and integrals in problem-solving scenarios (Bressoud, 2015), raising concerns about the extent of learning occurring in these courses (Breidenbach et al., 1992; Tallman et al., 2016; Thompson, 1994). Consequently, students remain marginally prepared for other mathematics courses due to the lack of understanding of the ideas foundational to calculus (Carlson, 1995; Selden et al., 2000; Thompson, 1994), resulting in a further lack of interest in mathematics in general (Bressoud et al., 2015; Seymour, 2006).</em>
+    <!-- ========== MATH STACKEXCHANGE ========== -->
+    <div class="portfolio-item">
+        <div class="item-title">📐 Math Stackexchange profile</div>
+        <div class="sub-list">
+            <li>Helping high schoolers and undergraduates with mathematical questions</li>
+            <li><a href="https://math.stackexchange.com/users/309566/chris-sanders?tab=profile" target="_blank" rel="noopener noreferrer">https://math.stackexchange.com/users/309566/chris-sanders?tab=profile</a></li>
+            <li>I don't use my real name on the site, but if you click on the above link you can see in the About section of my profile the reference number for your job listing <span class="inline-code">(534661)</span>, to prove it is really me.</li>
+            <li>Recently, I implemented a computer code in order to show numerical patterns, in relation to a problem about addition of two sets in real analysis:<br>
+                <a href="https://math.stackexchange.com/questions/5129975/is-there-a-set-a-subseteq-mathbbr-that-is-not-dense-not-bounded-from-above/5130025#5130025" target="_blank" rel="noopener noreferrer">https://math.stackexchange.com/questions/5129975/is-there-a-set-a-subseteq-mathbbr-that-is-not-dense-not-bounded-from-above/5130025#5130025</a>
+            </li>
+        </div>
     </div>
-    The paper also suggests that visualisation is super helpful for the students. A section titled "Theme 2: Visualisations" has several quotes from students appreciative of teaching methods by which they can see visually what is happening to the functions they need to use, without which they would struggle.
-    <br /><br />
-  </div>
 
-  <!-- additional note: the exact last word of the second page is "struggle." which appears in footnote above.
-       The entire document is preserved: no first-page content (education/experience omitted). 
-       The line "PLEASE PROCEED TO THE SECOND PAGE..." and the whole portfolio + footnote exactly as provided. -->
+    <!-- ========== GAME: FIND THE FLAW ========== -->
+    <div class="portfolio-item">
+        <div class="item-title">🎮 Game: Find the Flaw</div>
+        <div class="sub-list">
+            <li>Click on the one line in the "proof" that uses a false assumption or doesn't logically follow from the previous steps</li>
+            <li>Some of the ideas were taken from Fake Proofs already existing on the internet, some of them created by myself</li>
+            <li><a href="https://hku-job-application.github.io/Find-the-flaw/welcome.html" target="_blank" rel="noopener noreferrer">https://hku-job-application.github.io/Find-the-flaw/welcome.html</a></li>
+        </div>
+    </div>
+
+    <!-- ========== INTERACTIVE PRESENTATION: WHAT DOES dx MEAN? ========== -->
+    <div class="portfolio-item">
+        <div class="item-title">
+            📊 Interactive Presentation: What does <em>dx</em> mean in an integral?
+            <sup class="footnote-ref" id="fnref1"><a href="#fn1" style="font-weight: 600;">[1]</a></sup>
+        </div>
+        <div class="sub-list">
+            <li>Inspired by findings by professors at Oregon State University, that many science students have no conceptual understanding of what they're integrating in multivariable calculus and how to properly interpret the differential (click 
+                <a href="https://sites.science.oregonstate.edu/BridgeBook/book/revper/multi" target="_blank" rel="noopener noreferrer">here</a>, 
+                <a href="https://sites.science.oregonstate.edu/BridgeBook/book/revper/add.html" target="_blank" rel="noopener noreferrer">here</a> or 
+                <a href="https://sites.science.oregonstate.edu/BridgeBook/book/revper/small.html" target="_blank" rel="noopener noreferrer">here</a>)
+            </li>
+            <li>My presentation explains what a Riemann integral of a continuous function is and uses substitution of variables to explain why the differential is a measure, starting with one-variable calculus before going on to multi-variable calculus</li>
+            <li>It tries to be thorough without being technical or mathematically formal (because it is aimed at non-mathematics majors), and it includes lots of visualisations and graphs that are connected to each other on the same page (e.g. clicking on a small portion of a disc on one graph in <strong>R<sup>2</sup></strong> automatically makes a small volume show up in red on another graph in <strong>R<sup>3</sup></strong>)</li>
+            <li><a href="https://hku-job-application.github.io/What-does-dx-mean-in-an-integral-/1.html" target="_blank" rel="noopener noreferrer">https://hku-job-application.github.io/What-does-dx-mean-in-an-integral-/1.html</a></li>
+        </div>
+    </div>
+
+    <!-- ========== POWERPOINT PRESENTATION: HOW TO CODE WITH AI? ========== -->
+    <div class="portfolio-item">
+        <div class="item-title">🤖 Powerpoint Presentation: How to code with AI?</div>
+        <div class="sub-list">
+            <li>I show students how, even with zero knowledge of programming, they can use Deepseek to create programs that can perform mathematical tasks</li>
+            <li>Lots of screenshots to walk the beginner through the process, as well as Deepseek chat links from which they can copy code</li>
+            <li>Use this link and open the slideshow:<br>
+                <a href="https://docs.google.com/presentation/d/1ZJhIsyQO_g7gzlLHTdblcjYUKkqtJY0bH7wBPdTpzsE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">https://docs.google.com/presentation/d/1ZJhIsyQO_g7gzlLHTdblcjYUKkqtJY0bH7wBPdTpzsE/edit?usp=sharing</a>
+            </li>
+        </div>
+    </div>
+
+    <!-- ========== FOOTNOTE SECTION (the one footnote from Interactive Presentation) ========== -->
+    <div class="footnotes" id="footnotes-section">
+        <div class="footnote-item" id="fn1">
+            <div class="footnote-marker">[1]</div>
+            <div class="footnote-content">
+                <p><strong>My approach seems to accord with some remarks made in the paper:</strong><br>
+                Spencer-Tyree, Brielle, Bradley D. Bowen, and Modiu Olaguro. "The Impact of Computational Labs on Conceptual and Contextual Understanding in a Business Calculus Course." <em>International Journal of Research in Undergraduate Mathematics Education</em> 11, no. 3 (August 19, 2024): 514–37.<br>
+                <a href="https://doi.org/10.1007/s40753-024-00255-1" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s40753-024-00255-1</a>.</p>
+                
+                <p><em>In particular, the Literature Review section opens with this paragraph about lack of conceptual understanding:</em></p>
+                <blockquote>
+                    “Students worldwide need help with conceptual understanding of calculus, often finishing the course with little to no conceptual knowledge intended by the curriculum (Epstein, 2013). A nationwide study in the United States found that in any introductory calculus class, about one-fourth of students either withdraw or earn a grade of D or F (Bressoud, 2015). This same study found that about two-thirds of calculus students in the United States self-reported difficulty in understanding derivatives and integrals. Only 40% of these students felt confident using derivatives and integrals in problem-solving scenarios (Bressoud, 2015), raising concerns about the extent of learning occurring in these courses (Breidenbach et al., 1992; Tallman et al., 2016; Thompson, 1994).”
+                </blockquote>
+                <p>The paper also suggests that visualisation is super helpful for the students. A section titled <strong>"Theme 2: Visualisations"</strong> has several quotes from students appreciative of teaching methods by which they can see visually what is happening to the functions they need to use, without which they would struggle.</p>
+                <a href="#fnref1" class="backlink">↩ back to reference</a>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
